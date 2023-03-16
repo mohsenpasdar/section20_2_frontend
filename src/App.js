@@ -40,7 +40,19 @@ function App() {
           path: "events",
           element: <EventsLayout />,
           children: [
-            { index: true, element: <EventsPage /> },
+            {
+              index: true,
+              element: <EventsPage />,
+              loader: async () => {
+                const response = await fetch("http://localhost:8080/events");
+                if (!response.ok) {
+                  // setError("Fetching events failed.");
+                } else {
+                  const resData = await response.json();
+                  return resData.events
+                }
+              },
+            },
             { path: ":event_id", element: <EventDetailPage /> },
             { path: "new", element: <NewEventPage /> },
             { path: ":event_id/edit", element: <EditEventPage /> },
