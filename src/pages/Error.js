@@ -15,7 +15,7 @@ const ErrorPage = () => {
 
   if (error.status === 404) {
     title = "Not found!";
-    message = "Could not find resourcee or page!";
+    message = "Could not find resources or page!";
   }
 
   return (
