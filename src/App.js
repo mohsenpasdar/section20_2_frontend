@@ -4,7 +4,7 @@ import EventsPage, { loader as eventsLoader } from "./pages/Events";
 import EventDetailPage, {
   loader as eventDetailLoader,
 } from "./pages/EventDetail";
-import NewEventPage from "./pages/NewEvent";
+import NewEventPage, { action as newEventAction } from "./pages/NewEvent";
 import EditEventPage from "./pages/EditEvent";
 
 import RootLayout from "./pages/RootLayout";
@@ -30,7 +30,7 @@ function App() {
             },
             {
               path: ":event_id",
-              id: 'event-detail',
+              id: "event-detail",
               loader: eventDetailLoader,
               children: [
                 {
@@ -40,7 +40,7 @@ function App() {
                 { path: "edit", element: <EditEventPage /> },
               ],
             },
-            { path: "new", element: <NewEventPage /> },
+            { path: "new", element: <NewEventPage />, action: newEventAction },
           ],
         },
       ],
