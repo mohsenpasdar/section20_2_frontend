@@ -1,10 +1,9 @@
 import React from 'react';
+import EventForm from '../components/EventForm';
 
 const NewEventPage = () => {
     return (
-        <div>
-            <h1>This is NewEventPage</h1>
-        </div>
+        <EventForm />
     );
 };
 
